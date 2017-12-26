@@ -1,10 +1,7 @@
 package cc.blynk.server.db;
 
 import cc.blynk.server.core.BlockingIOProcessor;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -16,6 +13,7 @@ import static org.junit.Assert.assertTrue;
  * Created by Dmitriy Dumanskiy.
  * Created on 19.02.16.
  */
+@Ignore
 public class ForwardingTokenTest {
 
     private static DBManager dbManager;

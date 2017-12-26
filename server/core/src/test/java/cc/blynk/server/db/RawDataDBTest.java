@@ -7,10 +7,7 @@ import cc.blynk.server.core.reporting.raw.BaseReportingKey;
 import cc.blynk.server.core.reporting.raw.RawDataProcessor;
 import cc.blynk.utils.AppNameUtil;
 import cc.blynk.utils.NumberUtil;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -27,6 +24,7 @@ import static org.junit.Assert.assertNull;
  * Created by Dmitriy Dumanskiy.
  * Created on 19.02.16.
  */
+@Ignore
 public class RawDataDBTest {
 
     private static DBManager dbManager;

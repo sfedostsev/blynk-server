@@ -52,6 +52,7 @@ import static org.junit.Assert.assertTrue;
  * Created by Dmitriy Dumanskiy.
  * Created on 19.02.16.
  */
+@Ignore
 public class DBManagerTest {
 
     private static DBManager dbManager;

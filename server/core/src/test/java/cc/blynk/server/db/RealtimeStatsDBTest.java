@@ -8,10 +8,7 @@ import cc.blynk.server.core.stats.GlobalStats;
 import cc.blynk.server.core.stats.model.CommandStat;
 import cc.blynk.server.core.stats.model.HttpStat;
 import cc.blynk.server.core.stats.model.Stat;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -29,6 +26,7 @@ import static org.mockito.Mockito.mock;
  * Created by Dmitriy Dumanskiy.
  * Created on 19.02.16.
  */
+@Ignore
 public class RealtimeStatsDBTest {
 
     private static DBManager dbManager;

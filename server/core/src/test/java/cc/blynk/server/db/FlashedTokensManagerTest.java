@@ -2,10 +2,7 @@ package cc.blynk.server.db;
 
 import cc.blynk.server.core.BlockingIOProcessor;
 import cc.blynk.server.db.model.FlashedToken;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -19,6 +16,7 @@ import static org.junit.Assert.*;
  * Created by Dmitriy Dumanskiy.
  * Created on 19.02.16.
  */
+@Ignore
 public class FlashedTokensManagerTest {
 
     private static DBManager dbManager;
