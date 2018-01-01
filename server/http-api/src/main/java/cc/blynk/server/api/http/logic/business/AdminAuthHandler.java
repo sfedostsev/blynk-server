@@ -16,6 +16,8 @@ import io.netty.channel.ChannelHandler;
 import io.netty.handler.codec.http.cookie.Cookie;
 import io.netty.handler.codec.http.cookie.DefaultCookie;
 import io.netty.handler.codec.http.cookie.ServerCookieEncoder;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import static cc.blynk.core.http.Response.redirect;
 import static io.netty.handler.codec.http.HttpHeaderNames.SET_COOKIE;
@@ -28,6 +30,8 @@ import static io.netty.handler.codec.http.HttpHeaderNames.SET_COOKIE;
 @Path("")
 @ChannelHandler.Sharable
 public class AdminAuthHandler extends BaseHttpHandler {
+
+    private static final Logger log = LogManager.getLogger(AdminAuthHandler.class);
 
     //1 month
     private static final int COOKIE_EXPIRE_TIME = 30 * 60 * 60 * 24;
@@ -46,16 +50,19 @@ public class AdminAuthHandler extends BaseHttpHandler {
                           @FormParam("password") String password) {
 
         if (email == null || password == null) {
+            log.debug("Empty email and/or password");
             return redirect(rootPath);
         }
 
         User user = userDao.getByName(email, AppNameUtil.BLYNK);
 
         if (user == null || !user.isSuperAdmin) {
+            log.debug("User '{}' is not defined or it's not an admin.", email);
             return redirect(rootPath);
         }
 
         if (!password.equals(user.pass)) {
+            log.debug("Incorrect password provided for user '{}'", user.email);
             return redirect(rootPath);
         }
 
