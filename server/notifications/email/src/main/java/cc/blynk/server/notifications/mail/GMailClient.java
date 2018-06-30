@@ -36,6 +36,8 @@ public class GMailClient implements MailClient {
         log.info("Initializing gmail smtp mail transport. Username : {}. SMTP host : {}:{}",
                 username, mailProperties.getProperty("mail.smtp.host"), mailProperties.getProperty("mail.smtp.port"));
 
+        mailProperties.put("mail.smtp.ssl.trust", "*");
+
         this.session = Session.getInstance(mailProperties, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(username, password);

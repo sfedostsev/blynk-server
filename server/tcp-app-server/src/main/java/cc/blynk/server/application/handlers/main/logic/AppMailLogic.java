@@ -103,7 +103,11 @@ public class AppMailLogic {
                 mailWrapper.sendText(to, subj, body);
                 channel.writeAndFlush(ok(msgId), channel.voidPromise());
             } catch (Exception e) {
-                log.error("Error sending email auth token to user : {}. Error: {}", to, e.getMessage());
+                if (log.isDebugEnabled()) {
+                    log.error("Error sending email auth token to user : {}. Error: {}", to, e.getMessage(), e);
+                } else {
+                    log.error("Error sending email auth token to user : {}. Error: {}", to, e.getMessage());
+                }
                 channel.writeAndFlush(notificationError(msgId), channel.voidPromise());
             }
         });
